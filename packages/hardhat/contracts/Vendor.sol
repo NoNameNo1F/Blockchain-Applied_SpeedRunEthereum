@@ -8,7 +8,8 @@ contract Vendor is Ownable {
 
   // Events
   event BuyTokens(address buyer, uint256 amountOfETH, uint256 amountOfTokens);
-  
+  event SellTokens(address seller, uint256 amountOfTokens, uint256 amountOfETH);
+
   //Variables
   YourToken public yourToken;
 
@@ -37,5 +38,21 @@ contract Vendor is Ownable {
     payable(owner()).transfer(vendorBalance);
   }
   // ToDo: create a sellTokens(uint256 _amount) function:
+  function sellTokens(uint256 amount) public {
+    require(
+      yourToken.balanceOf(msg.sender) >= amount,
+      "Insufficient token balance"
+    );
 
+    uint256 amountOfEth = amount / tokensPerEth;
+    require(
+      address(this).balance >= amountOfEth,
+      "Vendor has insufficient ETH"
+    );
+
+    yourToken.transferFrom(msg.sender, address(this), amount);
+    payable(msg.sender).transfer(amountOfEth);
+
+    emit SellTokens(msg.sender, amount, amountOfEth);
+  }
 }
