@@ -6,11 +6,13 @@ import { Address } from "~~/components/scaffold-eth";
 import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
 
 const Events: NextPage = () => {
+  // const fromBlock = 3750241n;
   // BuyTokens Events
   const { data: buyTokenEvents, isLoading: isBuyEventsLoading } = useScaffoldEventHistory({
     contractName: "Vendor",
     eventName: "BuyTokens",
     fromBlock: 0n,
+    //fromBlock,
   });
 
   // SellTokens Events
@@ -18,6 +20,7 @@ const Events: NextPage = () => {
     contractName: "Vendor",
     eventName: "SellTokens",
     fromBlock: 0n,
+    //fromBlock,
   });
 
   return (
