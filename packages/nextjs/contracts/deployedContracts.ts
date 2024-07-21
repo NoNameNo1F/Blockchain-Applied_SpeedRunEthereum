@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   11155111: {
     Vendor: {
-      address: "0xe97088F425BAaa50EAe293017Ece14f585cdf2f7",
+      address: "0x218E52b8e6591D98451982bdfa0151DEE73C4Ad3",
       abi: [
         {
           inputs: [
@@ -183,7 +183,7 @@ const deployedContracts = {
       },
     },
     YourToken: {
-      address: "0xDDefdAdE35Cb778F19f292F92E781B9fDCA16c11",
+      address: "0x1110c163D23649A68956Fde3268Eb4fc4e95eAbF",
       abi: [
         {
           inputs: [],
